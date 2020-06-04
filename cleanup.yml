@@ -1,5 +1,5 @@
 ---
-- name: Webサイトをデプロイ
+- name: Webサイトを削除
   hosts: all
   become: true
   vars:
