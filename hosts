@@ -1,0 +1,6 @@
+[all:vars]
+ansible_user=vagrant
+
+[all]
+centos ansible_host=192.168.47.10
+ubuntu ansible_host=192.168.47.11

@@ -1,0 +1,7 @@
+<html>
+<body>
+  <p align=center><img src='{{ "logo.png" if use_local_logo | bool else "http://docs.ansible.com/images/logo.png" }}' align=center></p>
+  <h3 align=center>This is a {{ ansible_distribution }} {{ ansible_distribution_version }} host</h3>
+  <h1 align=center>{{ site_message }}</h1>
+</body>
+</html>
