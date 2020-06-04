@@ -16,18 +16,12 @@
 
     - name: nginxとfirewalldのサービス起動/有効化
       service:
-        name: nginx
+        name: '{{ item }}'
         state: started
         enabled: true
       loop:
         - nginx
         - firewalld
-
-    - name: firewalldサービス起動/有効化
-      service:
-        name: firewalld
-        state: started
-        enabled: true
 
     - name: firewalldでhttpアクセスを許可
       firewalld:

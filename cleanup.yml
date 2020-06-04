@@ -1,0 +1,29 @@
+---
+- name: Webサイトをデプロイ
+  hosts: all
+  become: true
+  vars:
+    html_dir: '{% if ansible_os_family == "RedHat" %}/usr/share/nginx/html{% else %}/var/www/html{% endif %}'
+  tasks:
+    - name: nginxとfirewalldの停止
+      service:
+        name: '{{ item }}'
+        state: stopped
+      loop:
+        - nginx
+        - firewalld
+
+    - name: nginxとfiewalldをアンインストール
+      package:
+        name:
+          - nginx
+          - firewalld
+        state: absent
+
+    - name: 展開済みファイルを削除
+      file:
+        path: '{{ html_dir }}/{{ item }}'
+        state: absent
+      loop:
+        - logo.png
+        - index.html
