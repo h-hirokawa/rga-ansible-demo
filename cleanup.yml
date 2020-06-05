@@ -9,6 +9,7 @@
       service:
         name: '{{ item }}'
         state: stopped
+      ignore_errors: true
       loop:
         - nginx
         - firewalld
